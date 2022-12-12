@@ -14,7 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <div className="flex flex-col p-4 h-full">
+      <div className="flex flex-col p-4 h-full space-y-4">
         <Header />
         <main className="flex-1">
           <Component {...pageProps} />
