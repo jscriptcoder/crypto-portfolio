@@ -4,7 +4,7 @@ Toy project
 
 ## Getting Started
 
-### Download source
+#### Download source
 
 Open a terminal and run the following commands:
 
@@ -13,7 +13,7 @@ $ git clone https://github.com/jscriptcoder/crypto-portfolio.git
 $ cd crypto-portfolio
 ```
 
-### Installing and running development env
+#### Installing and running development env
 
 Install all the dependencies:
 
@@ -21,7 +21,7 @@ Install all the dependencies:
 $ npm install
 ```
 
-Next you're gonna open a second terminal to run the express server that interfaces with Defillama API (under the hood it's just importing a JSON file with the data)
+Next you're gonna open a second terminal to run the express server that interfaces with Defillama API. Under the hood it's just importing a JSON file with the data.
 
 Run the following command:
 
