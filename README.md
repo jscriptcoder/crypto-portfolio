@@ -30,11 +30,15 @@ Run the following command:
 $ npm run server
 ```
 
+This server runs on http://localhost:4000/
+
 Now run the development environment in the first terminal:
 
 ```bash
 $ npm run dev
 ```
+
+The application runs on http://localhost:3000/
 
 Have fun 😊
 
