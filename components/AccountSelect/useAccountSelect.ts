@@ -1,15 +1,9 @@
-import {
-  Dispatch,
-  SetStateAction,
-  useCallback,
-  useEffect,
-  useState,
-} from 'react'
+import { Dispatch, SetStateAction, useEffect, useMemo, useState } from 'react'
 
 interface UseAccountSelectReturn {
+  label: string
   accounts: Account[]
   loadingAccounts: boolean
-  getOptionLabel: (account: Account) => string
 }
 
 export type SetLoading = Dispatch<SetStateAction<boolean>>
@@ -27,11 +21,14 @@ export default function useAccountSelect(): UseAccountSelectReturn {
       .finally(() => setLoadingAccounts(false))
   }, [])
 
-  const getOptionLabel = useCallback((account: Account) => account.name, [])
+  const label = useMemo(
+    () => (loadingAccounts ? 'Loading accounts...' : 'Account'),
+    [loadingAccounts],
+  )
 
   return {
+    label,
     accounts,
     loadingAccounts,
-    getOptionLabel,
   }
 }

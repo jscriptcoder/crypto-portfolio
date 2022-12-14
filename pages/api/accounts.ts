@@ -7,7 +7,7 @@ export default function accounts(
   // Reaches out to internal DB to get user's list of accounts
   res.status(200).json([
     {
-      name: 'Account 1',
+      name: 'My main account',
       address: '0xef7f2e81ea14538858d962df34eb1bfda83da395',
     },
   ])

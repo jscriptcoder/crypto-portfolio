@@ -1,3 +1,4 @@
+import { SelectChangeEvent } from '@mui/material'
 import {
   SyntheticEvent,
   useCallback,
@@ -21,13 +22,13 @@ export default function useHome() {
   const [account, setAccount] = useState<AccountDetails>()
 
   const onChangeAccount = useCallback(
-    async (event: SyntheticEvent, accountValue: AccountValue) => {
-      const account = accountValue as Account
+    async (event: SelectChangeEvent<string>) => {
+      const address = event.target.value
 
       setLoadingAccount(true)
 
       try {
-        const response = await fetch(`/api/account/${account.address}`)
+        const response = await fetch(`/api/account/${address}`)
         const data = (await response.json()) as AccountDetails
         setAccount(data)
       } catch (error) {
