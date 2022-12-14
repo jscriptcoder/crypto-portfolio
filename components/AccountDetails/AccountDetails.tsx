@@ -22,6 +22,7 @@ import WarningRoundedIcon from '@mui/icons-material/WarningRounded'
 import { useMemo } from 'react'
 import useAccountDetails from './useAccountDetails'
 import { coloredPrice, price } from '../../utils/numbers'
+import DetailsLoading from './DetailsLoading'
 
 interface AccountDetailsProps {
   loading?: boolean
@@ -44,7 +45,7 @@ export default function AccountDetails({
         </div>
       )}
 
-      {loading && <Skeleton variant="rectangular" />}
+      {loading && <DetailsLoading />}
 
       {account && (
         <Card>
