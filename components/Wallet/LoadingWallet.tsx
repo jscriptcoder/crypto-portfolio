@@ -12,7 +12,7 @@ import {
   TableRow,
 } from '@mui/material'
 
-export default function DetailsLoading() {
+export default function LoadingWallet() {
   return (
     <Card>
       <CardHeader

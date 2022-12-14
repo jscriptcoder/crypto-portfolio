@@ -7,16 +7,12 @@ export default function accounts(
   res: NextApiResponse<Account[]>,
 ) {
   // Introduces a random delay in the response
-  delay(
-    () => {
-      res.status(200).json([
-        {
-          name: 'My main account',
-          address: '0xef7f2e81ea14538858d962df34eb1bfda83da395',
-        },
-      ])
-    },
-    1000,
-    3000,
-  )
+  delay(() => {
+    res.status(200).json([
+      {
+        name: 'My main account',
+        address: '0xef7f2e81ea14538858d962df34eb1bfda83da395',
+      },
+    ])
+  })
 }

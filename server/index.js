@@ -10,7 +10,7 @@ app.get('/', (_, res) => {
 
 // Simulate delay response
 app.use((req, res, next) => {
-  delay(next, 1000, 3000)
+  delay(next)
 })
 
 app.get('/address/:address', (req, res) => {
