@@ -45,3 +45,7 @@ Have fun 😊
 ### Important note:
 
 I'm simulating delay on each HTTP requests to make more obvious loading states.
+
+## Sneak Peek
+
+![Dashboard](sneak_peek.png)
