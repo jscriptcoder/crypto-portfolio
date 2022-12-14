@@ -1,6 +1,7 @@
 import {
   Avatar,
   Card,
+  CardActions,
   CardContent,
   CardHeader,
   Paper,
@@ -58,6 +59,9 @@ export default function LoadingWallet() {
           </Table>
         </TableContainer>
       </CardContent>
+      <CardActions className="flex justify-end">
+        <Skeleton variant="text" width={100} />
+      </CardActions>
     </Card>
   )
 }

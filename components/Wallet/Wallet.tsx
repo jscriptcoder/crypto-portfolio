@@ -10,10 +10,12 @@ import {
   TableBody,
   TableCell,
   TableContainer,
+  TableHead,
   TableRow,
 } from '@mui/material'
 import { coloredPrice, price } from '../../utils/numbers'
 import ExpandMore from './ExpandMore'
+import Positions from './Positions'
 import useWallet from './useWallet'
 
 interface WalletProps {
@@ -66,7 +68,9 @@ export default function Wallet({ data }: WalletProps) {
         />
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>Content</CardContent>
+        <CardContent>
+          <Positions chains={data.chains} />
+        </CardContent>
       </Collapse>
     </Card>
   )
