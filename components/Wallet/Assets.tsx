@@ -32,7 +32,7 @@ export default function Assets({ data }: AssetsProps) {
           </TableHead>
           <TableBody>
             {data.assets.map((asset) => (
-              <TableRow>
+              <TableRow key={asset.uuid}>
                 <TableCell>
                   <div className="flex items-center space-x-4">
                     <Avatar src={asset.imgSmall} alt={asset.name} />
