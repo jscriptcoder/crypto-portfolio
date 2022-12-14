@@ -18,6 +18,7 @@ $ cd crypto-portfolio
 Install all the dependencies:
 
 ```bash
+$ cd /path/to/crypto-portfolio
 $ npm install
 ```
 
