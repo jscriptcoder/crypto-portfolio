@@ -42,6 +42,14 @@ The application runs on http://localhost:3000/
 
 Have fun 😊
 
+#### Alternative with Docker
+
+If you have Docker on your machine (tested on version 20.10.12), you can simply run the development environment in a container, so no need to install packages nor run the server and app separately.
+
+```bash
+$ npm run docker-dev
+```
+
 ### Important note:
 
 I'm simulating delay on each HTTP requests to make more obvious loading states.

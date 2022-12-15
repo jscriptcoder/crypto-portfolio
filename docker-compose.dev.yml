@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  crypto-portfolio-server:
+    image: crypto-portfolio-server_dev
+    build:
+      context: .
+      dockerfile: docker/server/Dockerfile.dev
+    ports:
+      - 4000:4000
+    networks:
+      - server-network
+      - app-network
+
+  crypto-portfolio-app:
+    image: crypto-portfolio-app_dev
+    environment:
+      SERVER_API: http://crypto-portfolio-server:4000
+    build:
+      context: .
+      dockerfile: docker/app/Dockerfile.dev
+    volumes:
+      - ./components:/usr/app/components
+      - ./pages:/usr/app/pages
+      - ./styles:/usr/app/styles
+      - ./utils:/usr/app/utils
+    ports:
+      - 3000:3000
+    depends_on:
+      - server
+    networks:
+      - app-network
+
+networks:
+  server-network:
+  app-network:

@@ -1,3 +1,5 @@
+declare const SERVER_API: string
+
 type Address = string
 
 interface Asset {
