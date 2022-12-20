@@ -1,25 +1,25 @@
 import { SelectChangeEvent } from '@mui/material'
-import {
-  SyntheticEvent,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react'
-import { AccountValue } from '../../components/AccountSelect/AccountSelect'
+import { useCallback, useState } from 'react'
 
 interface UseHomeReturn {
-  account: AccountDetails
+  error?: ServerError
+  account?: AccountDetails
   loadingAccount: boolean
-  onChangeAccount: (
-    event: SyntheticEvent,
-    accountValue: AccountValue,
-  ) => Promise<void>
+  onChangeAccount: (event: SelectChangeEvent<string>) => void
 }
 
-export default function useHome() {
+function isServerError(
+  details: AccountDetails | ServerError,
+): details is ServerError {
+  return 'error' in details
+}
+
+export default function useHome(): UseHomeReturn {
   const [loadingAccount, setLoadingAccount] = useState(false)
+
+  // TODO: consider using SWR here
   const [account, setAccount] = useState<AccountDetails>()
+  const [error, setError] = useState<ServerError>()
 
   const onChangeAccount = useCallback(
     async (event: SelectChangeEvent<string>) => {
@@ -29,10 +29,16 @@ export default function useHome() {
 
       try {
         const response = await fetch(`/api/account/${address}`)
-        const data = (await response.json()) as AccountDetails
-        setAccount(data)
-      } catch (error) {
-        console.error(error)
+        const data = (await response.json()) as AccountDetails | ServerError
+
+        if (!isServerError(data)) {
+          setAccount(data)
+          setError(undefined)
+        } else {
+          setError(data)
+        }
+      } catch (err) {
+        setError({ error: err })
       } finally {
         setLoadingAccount(false)
       }
@@ -41,6 +47,7 @@ export default function useHome() {
   )
 
   return {
+    error,
     account,
     loadingAccount,
     onChangeAccount,
