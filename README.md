@@ -1,6 +1,6 @@
 # Crypto Portfolio
 
-Crypto portfolio managment tool.
+Crypto portfolio management tool.
 
 ## Getting Started
 
