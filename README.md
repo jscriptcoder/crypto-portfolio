@@ -1,6 +1,6 @@
 # Crypto Portfolio
 
-Toy project
+Crypto portfolio managment tool.
 
 ## Getting Started
 
