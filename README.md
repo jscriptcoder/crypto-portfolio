@@ -1,4 +1,4 @@
-# Crypto Portfolio
+# Crypto Portfolio - Home Assignment Test
 
 Crypto portfolio management tool.
 
